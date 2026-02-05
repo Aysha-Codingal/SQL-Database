@@ -77,3 +77,22 @@ JOIN Salesman ON Orders.Salesman_id = Salesman.Salesman_id
 JOIN Customer ON Orders.Customer_id = Customer.Customer_id
 WHERE Customer.grade IS NOT NULL;
 
+SELECT Customer.Cust_Name AS "Customer",
+Customer.City AS "City",
+Salesman.name AS "Salesman",
+Salesman.comission
+FROM Customer
+JOIN Salesman ON Customer.Salesman_id = Salesman.Salesman_id
+WHERE Salesman.comission BETWEEN 0.12 AND 0.14;
+
+SELECT Orders.ord_no, Customer.cust_name,Salesman.comission AS "comission%",
+Orders.purch_amt * Salesman.comission AS "comission"
+FROM Orders
+JOIN Salesman ON Orders.Salesman_id = Salesman.Salesman_id
+JOIN Customer ON Orders.Customer_id = Customer.Customer_id
+WHERE Customer.grade >= 200;
+
+SELECT * FROM Customer
+JOIN Orders ON Customer.Customer_id = Orders.Customer_id
+WHERE Orders.ord_date = '12/3/2012';
+
